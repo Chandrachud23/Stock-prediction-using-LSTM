@@ -46,11 +46,10 @@ from sklearn.preprocessing import MinMaxScaler
 
 scaler = MinMaxScaler(feature_range=(0,1))#scaling features within (0,1)
 scaled_data = scaler.fit_transform(dataset)
-
-
 scaled_data
 
 # Creating the training data set
+
 #Creating the scaled training data set
 train_data = scaled_data[0:int(training_data_len), :]#you need to select rows starting from zero till training_data_len and all the columns from your scaled_data.
 #Train Dataset: Used to fit the machine learning model.
@@ -59,9 +58,9 @@ train_data = scaled_data[0:int(training_data_len), :]#you need to select rows st
 x_train = []
 y_train = []
 
-Creating a training data set that contains the past 60 day closing price values that we want to use to predict the 61st closing price value.
-So the first column in the ‘x_train’ data set will contain values from the data set from index 0 to index 59 (60 values total)and the second column will contain values from the data set from index 1 to index 60 (60 values) and so on and so forth.
-The ‘y_train’ data set will contain the 61st value located at index 60 for it’s first column and the 62nd value located at index 61 of the data set for it’s second value and so on and so forth.
+#Creating a training data set that contains the past 60 day closing price values that we want to use to predict the 61st closing price value.
+#So the first column in the ‘x_train’ data set will contain values from the data set from index 0 to index 59 (60 values total)and the second column will contain values from the data set from index 1 to index 60 (60 values) and so on and so forth.
+#The ‘y_train’ data set will contain the 61st value located at index 60 for it’s first column and the 62nd value located at index 61 of the data set for it’s second value and so on and so forth.
 
 for i in range(60, len(train_data)):
     x_train.append(train_data[i-60:i, 0])
